@@ -4,47 +4,29 @@ import Adapter from '@ember-data/adapter';
 export default class ApplicationAdapter extends Adapter {
   constructor() {
     super(...arguments);
-    this.records = {};
-  }
-
-  _ensureStore(type) {
-    if (!this.records[type.modelName]) {
-      this.records[type.modelName] = {};
-    }
+    this.records = {}; // store records per model
   }
 
   findAll(store, type) {
-    this._ensureStore(type);
-    return Promise.resolve(Object.values(this.records[type.modelName]));
+    return Promise.resolve(Object.values(this.records[type.modelName] || {}));
   }
 
   findRecord(store, type, id) {
-    this._ensureStore(type);
-    const record = this.records[type.modelName][id] || null;
+    const record = this.records[type.modelName]?.[id] || null;
     return Promise.resolve(record);
   }
 
   createRecord(store, type, snapshot) {
+    console.log('aaa');
+
     const id = snapshot.id || String(Math.random());
-
     const record = { id, ...snapshot.attributes() };
-
     this.records[type.modelName] = this.records[type.modelName] || {};
     this.records[type.modelName][id] = record;
-
-    return Promise.resolve(
-      store.push({
-        data: {
-          type: type.modelName,
-          id,
-          attributes: snapshot.attributes()
-        }
-      })
-    );
+    return Promise.resolve(record);
   }
 
   updateRecord(store, type, snapshot) {
-    this._ensureStore(type);
     const id = snapshot.id;
     const record = { id, ...snapshot.attributes() };
     this.records[type.modelName][id] = record;
@@ -52,7 +34,6 @@ export default class ApplicationAdapter extends Adapter {
   }
 
   deleteRecord(store, type, snapshot) {
-    this._ensureStore(type);
     const id = snapshot.id;
     delete this.records[type.modelName][id];
     return Promise.resolve();

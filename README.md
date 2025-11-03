@@ -20,3 +20,10 @@ Feel free to submit any feature request or bug in the issue section.
 `ember electron:package -dev` with additional `-s` to skip build
 
 `ember electron:make -dev`  with additional `-sb` to skip build
+
+
+
+
+
+docker compose run --rm burger-inserts rm -rf node_modules package-lock.json
+docker compose run --rm burger-inserts npm install 

@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const sass = require('sass'); // <-- ADD THIS
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -10,7 +11,14 @@ module.exports = function (defaults) {
     },
     fingerprint: {
       extensions: ['js', 'css']
+    },
+    sassOptions: {
+      implementation: sass,
+      includePaths: [
+        'node_modules/foundation-sites/scss'
+      ]
     }
+
   });
 
   return app.toTree();

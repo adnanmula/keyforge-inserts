@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'burger-inserts',
     environment,
     rootURL: process.env.EMBER_CLI_ELECTRON ? '' : '/',
-    locationType: process.env.EMBER_CLI_ELECTRON ? 'hash' : 'auto',
+    locationType: process.env.EMBER_CLI_ELECTRON ? 'hash' : 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -27,7 +27,7 @@ module.exports = function(environment) {
       'Lato:300,400,500,400italic',
       'Roboto:300'
     ],
-    
+
     // Set or update content security policies
     contentSecurityPolicy: {
       'font-src': "'self' fonts.gstatic.com",
@@ -35,12 +35,12 @@ module.exports = function(environment) {
     },
 
     kfapi: "https://www.keyforgegame.com/api/",
-    
+
     dok: {
       sharedApiKey: "57f0d4c3-8101-4f0a-a2cc-b2a39bec622b",
       lastSasUpdate: "2021-04-06",
       lastSasVersion: 37
-    }      
+    }
   };
 
   if (environment === 'development') {

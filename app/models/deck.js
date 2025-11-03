@@ -45,7 +45,7 @@ export default class DeckModel extends Model {
 
   @attr('string') source;
 
-  @hasMany('deck-folder', { async: true }) folders;
+  @hasMany('deck-folder', { async: true, inverse: null }) folders;
 
   get synergyCombo() {
     let text = this.synergyRating;
@@ -54,5 +54,5 @@ export default class DeckModel extends Model {
     }
     return text;
   }
-  
+
 }

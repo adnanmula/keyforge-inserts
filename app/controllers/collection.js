@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { isNotFoundError } from 'ember-ajax/errors';
+// import { isNotFoundError } from 'ember-ajax/errors';
 import { later } from '@ember/runloop';
 import { debounce } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
@@ -10,7 +10,8 @@ import { notEmpty } from '@ember/object/computed';
 export default class CollectionController extends Controller {
   @service deckManager;
   @service mastervault;
-  
+  @service store;
+
   webcamActive = false;
 
   @tracked isResyncAllDecksPending = false;
@@ -60,7 +61,7 @@ export default class CollectionController extends Controller {
 
   /**
    * Check if the deck is registerd on Master Vault
-   * @param {string} deckId 
+   * @param {string} deckId
    */
   checkDeckOnVault(deckId) {
     return this.get('mastervault').checkDeckCode(deckId).then((response) => {
@@ -87,7 +88,7 @@ export default class CollectionController extends Controller {
   addDeckByName(name) {
     if(name && name.trim().length > 0) {
       debounce(this, this._addDeckByName, name, 500);
-    }    
+    }
   }
 
   _addDeckByName(name) {
@@ -125,19 +126,74 @@ export default class CollectionController extends Controller {
   }
 
   @action
-  addCustomDeck() {
+  async addCustomDeck() {
+    // Ensure activeFolder is loaded
+    if (!this.activeFolder) {
+      try {
+        // fetch the default folder properly
+        this.activeFolder = await this.store.findRecord('deckFolder', 'default');
+      } catch (err) {
+        console.error('No active folder found:', err);
+        return;
+      }
+    }
+
     let targetFolder = this.activeFolder;
     let newCustomDeck = this.deckManager.getCustomDeck(this.customDeck);
-    
-    this.deckManager.saveNew(newCustomDeck).then((deck) => {
-      if (targetFolder.decks.find((d) => d.id === deck.id) === undefined) {
-        targetFolder.decks.pushObject(deck);
-        targetFolder.save();
-      }
-    });   
 
-    this.addToLog('Added custom deck '+newCustomDeck.name);
+    try {
+      let deck = await this.deckManager.saveNew(newCustomDeck);
+
+      // Ensure hasMany is an array
+      if (!Array.isArray(targetFolder.decks)) {
+        targetFolder.decks = [];
+      }
+
+      if (!targetFolder.decks.find((d) => d.id === deck.id)) {
+        targetFolder.decks.pushObject(deck);
+        await targetFolder.save();
+      }
+
+      this.addToLog('Added custom deck ' + newCustomDeck.name);
+    } catch (err) {
+      console.error('Failed to add custom deck:', err);
+    }
   }
+
+  // @action
+  // async addCustomDeck() {
+  //   if (!this.activeFolder) {
+  //     this.activeFolder = this.store.findRecord('deckFolder', 'default').then((folder) => {
+  //       this.activeFolder = folder;
+  //     });
+  //
+  //     if (!this.activeFolder) {
+  //       console.error('No active folder selected');
+  //       return;
+  //     } else {
+  //       console.error('Updated default folder');
+  //     }
+  //   }
+  //
+  //   try {
+  //     // Convert custom deck data into a deck record
+  //     let newCustomDeck = this.deckManager.getCustomDeck(this.customDeck);
+  //
+  //     // Save the deck via your deckManager service
+  //     let deck = await this.deckManager.saveNew(newCustomDeck);
+  //
+  //     // Add to the folder's hasMany relationship safely
+  //     if (!this.activeFolder.decks.includes(deck)) {
+  //       this.activeFolder.decks.pushObject(deck);
+  //       await this.activeFolder.save();
+  //     }
+  //
+  //     // Log action
+  //     this.addToLog(`Added custom deck ${newCustomDeck.name}`);
+  //   } catch (error) {
+  //     console.error('Failed to add custom deck:', error);
+  //   }
+  // }
 
   @action
   addDeck(deckData) {
@@ -153,7 +209,7 @@ export default class CollectionController extends Controller {
         targetFolder.decks.pushObject(deck);
         targetFolder.save();
       }
-    });   
+    });
 
     this.addToLog('Added deck '+deckData.name);
   }
@@ -166,7 +222,7 @@ export default class CollectionController extends Controller {
   stopWebcam() {
     this.set('webcamActive',false);
   }
-  
+
   @action
   onScanSuccess(found)  {
     let exp = '(?:https://www.keyforgegame.com/deck/)?([0-9A-Z]{5}-[0-9A-Z]{5}-[0-9A-Z]{5})';
@@ -176,14 +232,14 @@ export default class CollectionController extends Controller {
       this.addToLog('Scanned a deck with QR code '+deckPrivId);
       this.addToLog('Searching in MasterVault. Please wait.');
       this.checkDeckOnVault(deckPrivId);
-      
+
     } else {
       this.flashColor(false);
     }
     this.set('continueScanning', true);
   }
 
-  // Scan and camera related stuff 
+  // Scan and camera related stuff
 
   @action
   onScanError()  {
@@ -210,7 +266,7 @@ export default class CollectionController extends Controller {
   clearDecks() {
     this.deckManager.removeAllDecks();
   }
-  
+
   @action
   uploadDokCsv(file) {
     // For now send all to default folder
@@ -248,16 +304,16 @@ export default class CollectionController extends Controller {
     if (!navigator.clipboard) {
       var textArea = document.createElement("textarea");
       textArea.value = text;
-      
+
       // Avoid scrolling to bottom
       textArea.style.top = "0";
       textArea.style.left = "0";
       textArea.style.position = "fixed";
-    
+
       document.body.appendChild(textArea);
       textArea.focus();
       textArea.select();
-    
+
       try {
         var successful = document.execCommand('copy');
         var msg = successful ? 'successful' : 'unsuccessful';
@@ -265,7 +321,7 @@ export default class CollectionController extends Controller {
       } catch (err) {
         console.error('Fallback: Oops, unable to copy', err);
       }
-    
+
       document.body.removeChild(textArea);
     } else {
       navigator.clipboard.writeText(text).then(function() {
