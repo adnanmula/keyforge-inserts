@@ -1,6 +1,6 @@
 {
   "name": "burger-inserts",
-  "version": "21.4.1",
+  "version": "0.0.0",
   "private": true,
   "description": "Insert Generator for Burger Token Boxes",
   "repository": "",
@@ -43,7 +43,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^3.0.0",
     "ember-data": "~3.17.0",
-    "ember-electron": "^7.0.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^7.0.1",
     "ember-file-upload": "^3.0.2",

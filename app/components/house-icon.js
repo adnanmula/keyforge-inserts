@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 export default class HouseIconComponent extends Component {
 
   baseIconPath = 'assets/icons/svg/house/';
-  
+
   colorIcons = {
     'Brobnar': 'Brobnar.svg',
     'Logos': 'Logos.svg',
@@ -16,7 +16,9 @@ export default class HouseIconComponent extends Component {
     'Saurian': 'Saurian.svg',
     'Unfathomable': 'Unfathomable.svg',
     'Ekwidon': 'Ekwidon.svg',
-    'Gestoid': 'Gestoid.svg',
+    'Geistoid': 'Geistoid.svg',
+    'Redemption': 'Redemption.svg',
+    'Skyborn': 'Skyborn.svg',
   };
 
   get imgSrc() {
@@ -27,7 +29,7 @@ export default class HouseIconComponent extends Component {
       iconFilename = 'Default.svg';
     }
     let style = this.args.printOptions.get('houseIconsStyle') || 'full';
- 
+
     let basePath = this.baseIconPath + style + '/';
 
     return basePath + iconFilename;
