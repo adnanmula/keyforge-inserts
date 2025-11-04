@@ -1,22 +1,27 @@
-# burger-inserts
+# Keyforge Inserts
 
 Burger Inserts is a project dedicated to help generating printable paper inserts that you can stick on deckboxes, or inside transparent deckboxes.
-
 Current size includes Burger Token boxes.
 
-Hosting at https://keyforge-burger-inserts.herokuapp.com has been discontinued.
-Project is still available as open source if you want to build it and run it locally.
+## Download
 
-it has been converted to a rich application you can run locally. You can build it yourself or download the pre built one (link in https://github.com/drallieiv/keyforge-burger-inserts/releases)
-Transition of MasterVault GhostGalaxy is still working exactly the same, but might require API subscription if you have intensive usage.
+Pre-built releases are available at: https://github.com/adnanmula/keyforge-inserts/releases
 
-Reach me on discord at Drallieiv#4274 if you want to help contribute
+## Build the app
+
+```
+make build
+make up
+make install (only needed the first time)
+```
+Access the application at `http://localhost:4200`
 
 
-Feel free to submit any feature request or bug in the issue section.
+## Package the app
 
-## Local Electron Build
+```
+make package:win
+make package:linux
+```
 
-`ember electron:package -dev` with additional `-s` to skip build
-
-`ember electron:make -dev`  with additional `-sb` to skip build
+Output location: `electron-out/burger-inserts-<platform>-<arch>/`
