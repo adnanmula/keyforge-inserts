@@ -17,7 +17,11 @@
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "npm-run-all lint:* test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "package:win": "ember electron:package --platform=win32 --arch=x64",
+    "make:win": "ember electron:make --platform=win32 --arch=x64",
+    "package:linux": "ember electron:package --platform=linux --arch=x64",
+    "make:linux": "ember electron:make --platform=linux --arch=x64"
   },
   "devDependencies": {
     "@ember/jquery": "^1.1.0",
@@ -43,6 +47,7 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^3.0.0",
     "ember-data": "~3.17.0",
+    "ember-electron": "^3.0.0",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^7.0.1",
     "ember-file-upload": "^3.0.2",

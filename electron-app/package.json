@@ -16,34 +16,37 @@
   "license": "MIT",
   "config": {
     "forge": {
-      "packagerConfig": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
         "ignore": [
           "/ember-test(/|$)",
           "/tests(/|$)"
         ]
       },
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "burger_inserts"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
+      "electronWinstallerConfig": {
+        "name": "burger_inserts"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "githubRepository": {
+        "owner": "",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "burgerinserts"
+      }
     }
   },
   "dependencies": {
@@ -52,12 +55,8 @@
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.4",
-    "@electron-forge/maker-deb": "^6.0.4",
-    "@electron-forge/maker-rpm": "^6.0.4",
-    "@electron-forge/maker-squirrel": "^6.0.4",
-    "@electron-forge/maker-zip": "^6.0.4",
-    "devtron": "^1.4.0",
-    "electron": "22.0.0"
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "8.2.0",
+    "devtron": "^1.4.0"
   }
 }

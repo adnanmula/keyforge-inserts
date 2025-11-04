@@ -52,7 +52,10 @@ app.on('ready', async () => {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    autoHideMenuBar: true,
   });
+
+  mainWindow.setMenuBarVisibility(false);
 
   // If you want to open up dev tools programmatically, call
   // mainWindow.openDevTools();
