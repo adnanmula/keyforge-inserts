@@ -10,6 +10,7 @@ const CardSets = {
   'TOKENS_OF_CHANGE': {short: 'TOC', full: 'Tokens of Change', class:'set-toc', hue:'',  exp: 855},
   'MORE_MUTATION': {short: 'MoM', full: 'More Mutation', class:'set-mom', hue:'',  exp: 874},
   'PROPHETIC_VISIONS': {short: 'PV', full: 'Prophetic Visions', class:'set-pv', hue:'',  exp: 886},
+  'DRACONIAN_MEASURES': {short: 'DM', full: 'Draconian Measures', class:'set-dm', hue:'',  exp: 887},
   'UNCHAINED': {short: 'U22', full: 'Unchained 2022', class:'set-u22', hue:'',  exp: 601},
   'VAULT_MASTERS_23': {short: 'VM23', full: 'Vault Masters 2023', class:'set-vm23', hue:'',  exp: 609},
   'MENAGERIE': {short: 'M24', full: 'Menagerie 2024', class:'set-m24', hue:'',  exp: 722},
@@ -40,6 +41,7 @@ const ExpansionList = [
   {csv: 'TOKENS_OF_CHANGE', short: 'TOC', full: 'Tokens of Change', class:'set-toc', hue:'',  exp: 855},
   {csv: 'MORE_MUTATION', short: 'MoM', full: 'More Mutation', class:'set-mom', hue:'',  exp: 874},
   {csv: 'PROPHETIC_VISIONS', short: 'PV', full: 'Prophetic Visions', class:'set-pv', hue:'',  exp: 886},
+  {csv: 'DRACONIAN_MEASURES', short: 'DM', full: 'Draconian Measures', class:'set-dm', hue:'',  exp: 887},
   {csv: 'UNCHAINED', short: 'U22', full: 'Unchained 2022', class:'set-u22', hue:'',  exp: 601},
   {csv: 'MENAGERIE', short: 'M24', full: 'Menagerie 2024', class:'set-m24', hue:'',  exp: 722},
   {csv: 'VAULT_MASTERS_23', short: 'VM23', full: 'Vault Masters 2023', class:'set-vm23', hue:'',  exp: 609},
@@ -64,6 +66,10 @@ const HouseList = [
   { name:'Geistoid', defaultIconPath: 'assets/icons/svg/house/Geistoid.svg'},
   { name:'Skyborn', defaultIconPath: 'assets/icons/svg/house/Skyborn.svg'},
   { name:'Redemption', defaultIconPath: 'assets/icons/svg/house/Redemption.svg'},
+  { name:'Ouboros', defaultIconPath: 'assets/icons/svg/house/Ouboros.svg'},
+  { name:'Keyraken', defaultIconPath: 'assets/icons/svg/house/Keyraken.svg'},
+  { name:'Elders', defaultIconPath: 'assets/icons/svg/house/Elders.svg'},
+  { name:'Ironix Rebels', defaultIconPath: 'assets/icons/svg/house/IronixRebels.svg'},
 ]
 
 export { CardSets, SearchExpansion, HouseList, ExpansionList };
