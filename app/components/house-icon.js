@@ -19,6 +19,8 @@ export default class HouseIconComponent extends Component {
     'Geistoid': 'Geistoid.svg',
     'Redemption': 'Redemption.svg',
     'Skyborn': 'Skyborn.svg',
+    'Ouboros': 'Ouboros.svg',
+    'Elders': 'Elders.svg',
   };
 
   get imgSrc() {
