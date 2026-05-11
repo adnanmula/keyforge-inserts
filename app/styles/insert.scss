@@ -401,7 +401,6 @@ $main-padding: 0;
 
   .dok-zone-stat {
     flex-basis: $stat;
-    overflow: hidden;
     font-size: 7mm;
     position: relative;
     line-height: $height;
@@ -409,7 +408,8 @@ $main-padding: 0;
     .dok-sas-label {
       font-size: 3mm;
       position: absolute;
-      left: 4mm;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: -4mm;
     }
   }
