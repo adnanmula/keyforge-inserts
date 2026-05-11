@@ -178,6 +178,14 @@
         @checked={{this.showSetColor}}
       />
       {{/if}}
+      {{#if (or this.showFrontOptions)}}
+      <PrintOptionToggle
+        @label="Use grayscale sas stats icons"
+        @id="option-showStatsGrayscale"
+        @name="showStatsGrayscale"
+        @checked={{mut this.showStatsGrayscale}}
+      />
+      {{/if}}
       <a class="button option-preset" role="button" {{on "click" (fn this.allColor)}}>
         All Color
       </a>

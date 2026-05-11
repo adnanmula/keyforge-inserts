@@ -1,5 +1,5 @@
 {{! Front Box Insert }}
-<div class="box-insert box-insert-front borders {{@deckboxFormat.boxClass}}">
+<div class="box-insert box-insert-front borders {{@deckboxFormat.boxClass}} {{if @printOptions._options.showGrayscaleIcons "grayscale-icons"}}">
   {{#if this.frontShowHeader}}
   <div class="dok-zone-front-header">
     {{! Name and extension }}

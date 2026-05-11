@@ -115,6 +115,13 @@ export default class DecksController extends Controller {
     this.printOptions.set('showSetColor', checked);
   }
 
+  get showStatsGrayscale() {
+    return this.printOptions.get('showGrayscaleIcons');
+  }
+  set showStatsGrayscale(checked) {
+    this.printOptions.set('showGrayscaleIcons', checked);
+  }
+
   get printSheetBlockSpaced() {
     return this.printOptions.get('spacePrintBlock');
   }
@@ -192,6 +199,7 @@ export default class DecksController extends Controller {
   allColor() {
     this.set('frontHouseBarColor', true);
     this.set('showSetColor', true);
+    this.set('showStatsGrayscale', false);
 
     if (this.houseIconStyle.id === 'bw') {
       this.setHouseStyle({id: 'logo', name: 'Logo'});
@@ -202,6 +210,7 @@ export default class DecksController extends Controller {
   allBlackAndWhite() {
     this.set('frontHouseBarColor', false);
     this.set('showSetColor', false);
+    this.set('showStatsGrayscale', true);
     this.setHouseStyle({id: 'bw', name: 'Black & White'});
   }
 

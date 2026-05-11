@@ -1,4 +1,5 @@
 import { tracked } from '@glimmer/tracking';
+import { set } from '@ember/object';
 
 export default class PrintOptions {
 
@@ -24,6 +25,7 @@ export default class PrintOptions {
       showSetColor: false,
       spacePrintBlock: false,
       houseIconStyle: 'logo',
+      showGrayscaleIcons: false,
     };
 
     if(options) {
@@ -33,7 +35,7 @@ export default class PrintOptions {
   }
 
   set(key, value) {
-    this._options[key] = value;
+    set(this._options, key, value);
 
     // trigger an update
     let currentOptions = this._options;
