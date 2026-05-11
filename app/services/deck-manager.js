@@ -57,7 +57,6 @@ export default class DeckManagerService extends Service {
       cardArchiveCount:  1 * csvData['Card Archive Count'],
       totalPower: csvData['Total Power'],
       totalArmor: csvData['Total Armor'],
-      meta: csvData['META Score'],
       dokLink: csvData['DoK Link'],
       masterVaultLink: csvData['Master Vault Link'],
       lastSasUpdate: csvData['Last SAS Update'],
@@ -287,7 +286,6 @@ export default class DeckManagerService extends Service {
     destDeck.sasRating = srcDeck.sasRating || 0;
     destDeck.synergyRating = srcDeck.synergyRating || 0;
     destDeck.other = srcDeck.other || 0;
-    destDeck.meta = srcDeck.meta || (destDeck.sasRating - destDeck.synergyRating + destDeck.antisynergyRating - destDeck.aercScore) || "?";
 
     // SAS Specific Data
     destDeck.lastSasUpdate = srcDeck.lastSasUpdate;   

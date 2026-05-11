@@ -33,7 +33,6 @@ export default class DeckModel extends Model {
   @attr('number') cardArchiveCount;
   @attr('number') totalPower;
   @attr('number') totalArmor;
-  @attr('number') meta;
 
   @attr('string') dokLink;
   @attr('string') masterVaultLink;
