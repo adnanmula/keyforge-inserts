@@ -20,9 +20,9 @@ const deckboxFormats = [
 ];
 
 const houseIconStyles = [
+  { id: 'logo', name: 'Logo'},
   { id: 'round', name: 'Round'},
-  { id: 'full', name: 'Full'},
-  { id: 'line', name: 'Line'},
+  { id: 'bw', name: 'Black & White'},
 ];
 
 export default class DecksController extends Controller {
@@ -193,8 +193,8 @@ export default class DecksController extends Controller {
     this.set('frontHouseBarColor', true);
     this.set('showSetColor', true);
 
-    if (this.houseIconStyle.id === 'line') {
-      this.setHouseStyle({id: 'round', name: 'Round'});
+    if (this.houseIconStyle.id === 'bw') {
+      this.setHouseStyle({id: 'logo', name: 'Logo'});
     }
   }
 
@@ -202,7 +202,7 @@ export default class DecksController extends Controller {
   allBlackAndWhite() {
     this.set('frontHouseBarColor', false);
     this.set('showSetColor', false);
-    this.setHouseStyle({id: 'line', name: 'Line'});
+    this.setHouseStyle({id: 'bw', name: 'Black & White'});
   }
 
   @action

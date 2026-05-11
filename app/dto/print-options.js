@@ -23,7 +23,7 @@ export default class PrintOptions {
       sas_showHouseBar: true,
       showSetColor: false,
       spacePrintBlock: false,
-      houseIconStyle: 'round',
+      houseIconStyle: 'logo',
     };
 
     if(options) {
