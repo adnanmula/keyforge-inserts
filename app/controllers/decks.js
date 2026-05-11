@@ -17,7 +17,13 @@ const deckboxFormats = [
   { id: 'BT_slim', name: 'Burger Tokens Unsleeved', boxClass: 'bt-slim' },
   { id: 'BT_large', name: 'Burger Tokens Sleeved', boxClass: 'bt-large' },
   { id: 'BT_xlarge', name: 'Burger Tokens Dbl. Slv.', boxClass: 'bt-xlarge' },
-]
+];
+
+const houseIconStyles = [
+  { id: 'round', name: 'Round'},
+  { id: 'full', name: 'Full'},
+  { id: 'line', name: 'Line'},
+];
 
 export default class DecksController extends Controller {
   @service deckManager;
@@ -32,6 +38,9 @@ export default class DecksController extends Controller {
   deckboxFormats = deckboxFormats;
   @tracked deckboxFormat;
 
+  houseIconStyles = houseIconStyles;
+  @tracked houseIconStyle;
+
   constructor() {
     super(...arguments);
     // Load From Preferences
@@ -40,6 +49,8 @@ export default class DecksController extends Controller {
     this.insertType = insertTypes.filter(type => (type.id == insertTypeId)).firstObject;
     let deckboxFormatId = this.preferences.get('deckboxFormatId', 'BT_slim');
     this.deckboxFormat = deckboxFormats.filter(format => (format.id == deckboxFormatId)).firstObject;
+    let houseIconStyleId = this.printOptions.get('houseIconStyle');
+    this.houseIconStyle = houseIconStyles.filter(style => (style.id == houseIconStyleId)).firstObject;
   }
 
   get folderToPrint() {
@@ -61,7 +72,7 @@ export default class DecksController extends Controller {
   get showFrontOptions() {
     return ['front', 'front_top', 'front_side', 'all', 'box_v'].includes(this.insertType.id);
   }
-  
+
   get sideShowSet() {
     return this.printOptions.get('side_showSet');
   }
@@ -88,7 +99,7 @@ export default class DecksController extends Controller {
   }
   set frontHouseBarColor(checked) {
     this.printOptions.set('front_HouseBarUseColor', checked);
-  }  
+  }
 
   get frontShowFooter() {
     return this.printOptions.get('front_showFooter');
@@ -103,7 +114,7 @@ export default class DecksController extends Controller {
   set showSetColor(checked) {
     this.printOptions.set('showSetColor', checked);
   }
-  
+
   get printSheetBlockSpaced() {
     return this.printOptions.get('spacePrintBlock');
   }
@@ -113,13 +124,6 @@ export default class DecksController extends Controller {
 
   get printSheetBlockStyle() {
     return this.printSheetBlockSpaced ? 'space' : 'no-space';
-  }
-
-  get useHouseIconFullColor() {
-    return this.printOptions.get('houseIconsStyle') === 'full';
-  }
-  set useHouseIconFullColor(checked) {
-    this.printOptions.set('houseIconsStyle', checked ? 'full' : 'line');
   }
 
   // SAS Related Toggles
@@ -160,7 +164,13 @@ export default class DecksController extends Controller {
     this.preferences.set('deckboxFormatId', format.id);
     this.deckboxFormat = format;
   }
-  
+
+  @action
+  setHouseStyle(style) {
+    this.printOptions.set('houseIconStyle', style.id);
+    this.houseIconStyle = style;
+  }
+
   @action
   clearDecks() {
     this.deckManager.removeAllDecks();
@@ -180,16 +190,19 @@ export default class DecksController extends Controller {
 
   @action
   allColor() {
-    this.set('useHouseIconFullColor', true);
     this.set('frontHouseBarColor', true);
     this.set('showSetColor', true);
+
+    if (this.houseIconStyle.id === 'line') {
+      this.setHouseStyle({id: 'round', name: 'Round'});
+    }
   }
 
   @action
   allBlackAndWhite() {
-    this.set('useHouseIconFullColor', false);
     this.set('frontHouseBarColor', false);
     this.set('showSetColor', false);
+    this.setHouseStyle({id: 'line', name: 'Line'});
   }
 
   @action
