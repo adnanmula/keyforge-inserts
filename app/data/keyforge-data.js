@@ -18,6 +18,7 @@ const CardSets = {
   'VAULT_MASTERS_25': {short: 'VM25', full: 'Vault Masters 2025', class:'set-vm25', hue:'',  exp: 939},
   'MARTIAN_CIVIL_WAR': {short: 'MCW', full: 'Martian Civil War', class:'set-mcw', hue:'',  exp: 892},
   'DISCOVERY': {short: 'DIS', full: 'Discovery', class:'set-dis', hue:'',  exp: 907},
+  'CRUCIBLE_CLASH': {short: 'CC', full: 'Crucible Clash', class:'set-cc', hue:'',  exp: 908},
 };
 
 let SearchExpansion =  function(sets, exp) {
