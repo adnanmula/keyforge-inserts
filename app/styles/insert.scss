@@ -509,10 +509,17 @@ $main-padding: 0;
   }
 }
 
+.dok-zone-houses {
+  font-size: 0;
+}
+
 .icon-house {
+  width: calc(100% / 3);
   height: $icon-base-height;
   max-height: 90%;
-  margin: 0 -0.5mm;
+  margin-top: 0.2mm;
+  margin-bottom: 0.2mm;
+  object-fit: contain;
 }
 
 .box-insert-front .icon-house {
