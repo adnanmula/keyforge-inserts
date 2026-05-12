@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" clip-rule="evenodd" viewBox="0 0 220 220" height="200" width="200">
+<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" clip-rule="evenodd" viewBox="27.75 26.75 164.5 166" height="888.024" width="880" overflow="visible">
   <clipPath id="a"/>
-  <path fill="none" d="M0 0h220v220H0z"/>
+  
   <g transform="translate(-543 -573)">
     <path fill="#3a3538" stroke="#000" stroke-width="2" d="M683 719a56 56 0 0 1-12 20l-7 24a1 1 0 0 1-2 1l-23-7q0 0 0 0a57 57 0 0 1-67-56 56 56 0 0 1 97-40c18-7 34-5 34-5 20 1 28 20 28 20q5 12 2 22c-4 19-23 25-23 25-6 2-15 0-15 0z"/>
     <path fill="#51494d" d="M675 710q-3 10-9 17l-3 4-4 18h-1l-20-6h-8c-27-1-48-21-48-47s21-49 48-49q20 1 33 14l30-4c21 2 26 8 29 14q4 10 3 19c-3 16-19 20-19 20-5 2-19-4-19-4-4 0-10-2-12 4"/>
-    <path fill="none" d="M683 719a56 56 0 0 1-12 20l-7 24a1 1 0 0 1-2 1l-23-7a57 57 0 0 1-67-56 56 56 0 0 1 97-40c18-7 34-5 34-5 20 1 28 20 28 20q5 12 2 22c-4 19-23 25-23 25-6 2-15 0-15 0z"/>
+    
     <g clip-path="url(#a)">
       <circle cx="668.7" cy="573" r="74.2" fill="#6c6165" transform="matrix(.967 0 0 1.051 7 -7)"/>
     </g>
