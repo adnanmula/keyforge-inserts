@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" clip-rule="evenodd" viewBox="27.75 26.75 164.5 166" height="888.024" width="880" overflow="visible">
+  <clipPath id="a"/>
+  
+  <g transform="translate(-543 -573)">
+    <path fill="#3a3538" stroke="#000" stroke-width="2" d="M683 719a56 56 0 0 1-12 20l-7 24a1 1 0 0 1-2 1l-23-7q0 0 0 0a57 57 0 0 1-67-56 56 56 0 0 1 97-40c18-7 34-5 34-5 20 1 28 20 28 20q5 12 2 22c-4 19-23 25-23 25-6 2-15 0-15 0z"/>
+    <path fill="#51494d" d="M675 710q-3 10-9 17l-3 4-4 18h-1l-20-6h-8c-27-1-48-21-48-47s21-49 48-49q20 1 33 14l30-4c21 2 26 8 29 14q4 10 3 19c-3 16-19 20-19 20-5 2-19-4-19-4-4 0-10-2-12 4"/>
+    
+    <g clip-path="url(#a)">
+      <circle cx="668.7" cy="573" r="74.2" fill="#6c6165" transform="matrix(.967 0 0 1.051 7 -7)"/>
+    </g>
+    <path fill="none" stroke="#000" stroke-width="2" d="M683 719a56 56 0 0 1-12 20l-7 24a1 1 0 0 1-2 1l-23-7q0 0 0 0a57 57 0 0 1-67-56 56 56 0 0 1 97-40c18-7 34-5 34-5 20 1 28 20 28 20q5 12 2 22c-4 19-23 25-23 25-6 2-15 0-15 0z"/>
+    <path fill="#6c6165" fill-opacity=".5" d="M679 690h-18l1 8s4-6 17-8"/>
+    <circle cx="628.8" cy="701.4" r="36.3" fill="#3a3538" transform="matrix(1.097 0 0 1.133 -61 -92)"/>
+    <circle cx="628.8" cy="701.4" r="36.3" fill="#de1d74"/>
+    <path fill="#951952" d="m595 689-1 6c0 20 16 36 35 36a36 36 0 0 0 34-42 36 36 0 0 1-34 49 36 36 0 0 1-34-49"/>
+    <circle cx="628.8" cy="701.4" r="26.8" fill="#e88ca6"/>
+    <circle cx="627.6" cy="691.8" r="12.4" fill="#f3c4ce"/>
+    <circle cx="628.8" cy="701.4" r="36.3" fill="none" stroke="#000" stroke-width="2.5"/>
+    <circle cx="698.4" cy="689" r="16.6" fill="#3a3538" transform="matrix(1.259 0 0 1.26 -181 -177)"/>
+    <circle cx="698.4" cy="689" r="16.6" fill="#de1d74"/>
+    <path fill="#951952" d="M683 682q1 15 15 16c14 1 15-7 15-16v-1l2 7a17 17 0 1 1-32-7"/>
+    <circle cx="698.4" cy="689" r="7.7" fill="#e88ca6"/>
+    <circle cx="698.4" cy="689" r="16.6" fill="none" stroke="#000" stroke-width="1.5"/>
+    <path fill="#453e41" stroke="#000" stroke-width="2" d="m629 619 16 24s13 1 24 13c0 0 9-6 28-5 0 0 9 0 11-7 0 0 5-38-27-43q-2-1-17 3z"/>
+    <path fill="#6b6165" d="m642 618 8 13s17 7 20 12c0 0 8-6 28-5 0 0 2-12-1-20-2-5-8-20-31-11z"/>
+    <circle cx="676.2" cy="627.4" r="13.8" fill="#3a3538" transform="matrix(1.304 0 0 1.34 -206 -212)"/>
+    <circle cx="676.2" cy="627.1" r="13.8" fill="#de1d74"/>
+    <path fill="#951952" d="M664 622q1 12 12 13c11 1 13-6 13-13l1 5a14 14 0 1 1-26-5"/>
+    <circle cx="676.2" cy="627.1" r="4.8" fill="#e88ca6"/>
+    <circle cx="676.2" cy="627.1" r="13.8" fill="none" stroke="#000" stroke-width="1.2"/>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
 {{! Side Box Insert }}
-<div class="box-insert box-insert-side{{unless this.sideShowSet " no-set"}} {{@deckboxFormat.boxClass}}">
+<div class="box-insert box-insert-side{{unless this.sideShowSet " no-set"}} {{@deckboxFormat.boxClass}} {{if @printOptions._options.showGrayscaleIcons "grayscale-icons"}}">
   {{! Name and extension }}
   <Set @set={{@deck.expansion}} @printOptions={{@printOptions}}/>
   <div class="dok-zone-name">

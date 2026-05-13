@@ -121,7 +121,6 @@ $main-padding: 0;
 
     .dok-zone-name {
       flex-grow: 1;
-      
       font-size: $nameFontSize;
       line-height: $nameFontSize;
       margin: auto; // Vertical center
@@ -232,7 +231,7 @@ $main-padding: 0;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        
+
         .dok-stat {
           margin: 0;
           display: flex;
@@ -376,7 +375,7 @@ $main-padding: 0;
   // Rules
   width: $width;
   height: $height;
-  
+
   $nameLineClip: 1;
 
   .dok-zone-set {
@@ -401,7 +400,6 @@ $main-padding: 0;
 
   .dok-zone-stat {
     flex-basis: $stat;
-    overflow: hidden;
     font-size: 7mm;
     position: relative;
     line-height: $height;
@@ -409,7 +407,8 @@ $main-padding: 0;
     .dok-sas-label {
       font-size: 3mm;
       position: absolute;
-      left: 4mm;
+      left: 50%;
+      transform: translateX(-50%);
       bottom: -4mm;
     }
   }
@@ -510,14 +509,25 @@ $main-padding: 0;
   }
 }
 
+.dok-zone-houses {
+  font-size: 0;
+}
+
 .icon-house {
+  width: calc(100% / 3);
   height: $icon-base-height;
-  max-height: 100%;
-  margin: 0 -0.7mm; // closer to each other
+  max-height: 90%;
+  margin-top: 0.2mm;
+  margin-bottom: 0.2mm;
+  object-fit: contain;
 }
 
 .box-insert-front .icon-house {
-  height: $icon-base-height - 2mm;
+  height: $icon-base-height - 2.5mm;
+}
+
+.box-insert-side .icon-house {
+  height: $icon-base-height - 1mm;
 }
 
 // Color For sets
@@ -631,7 +641,7 @@ $main-padding: 0;
   height: 3 * $depth + 2 * $height;
   $rotateMargin: -1.5mm;
 
-  td{ 
+  td{
     border: 1px solid black;
     padding: 0;
   }
@@ -688,7 +698,7 @@ $main-padding: 0;
   &.bt-xlarge {
     @include boxVTable($bt-xlarge-width, $bt-xlarge-height, $bt-xlarge-depth)
   }
-  .insertSideCell { 
+  .insertSideCell {
     background-color: yellowgreen;
   }
 }

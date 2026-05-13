@@ -1,17 +1,18 @@
 import { tracked } from '@glimmer/tracking';
+import { set } from '@ember/object';
 
 export default class PrintOptions {
-   
+
   @tracked _options = {};
 
   preferences = null;
 
   constructor(preferences, options) {
     this.polyFillAssign();
-    
+
     this.preferences = preferences;
 
-    let defaultOptions = {
+    this._options = {
       side_showSet: true,
       front_showSet: true,
       front_showHeader: true,
@@ -23,10 +24,9 @@ export default class PrintOptions {
       sas_showHouseBar: true,
       showSetColor: false,
       spacePrintBlock: false,
-      houseIconsStyle: 'full', // or 'line'
-    }
-
-    this._options = defaultOptions;
+      houseIconStyle: 'logo',
+      showGrayscaleIcons: false,
+    };
 
     if(options) {
       // Given Options
@@ -35,7 +35,7 @@ export default class PrintOptions {
   }
 
   set(key, value) {
-    this._options[key] = value;
+    set(this._options, key, value);
 
     // trigger an update
     let currentOptions = this._options;
@@ -64,7 +64,7 @@ export default class PrintOptions {
           if (target === undefined || target === null) {
             throw new TypeError('Cannot convert first argument to object');
           }
-    
+
           var to = Object(target);
           for (var i = 1; i < arguments.length; i++) {
             var nextSource = arguments[i];
@@ -72,7 +72,7 @@ export default class PrintOptions {
               continue;
             }
             nextSource = Object(nextSource);
-    
+
             var keysArray = Object.keys(Object(nextSource));
             for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
               var nextKey = keysArray[nextIndex];
