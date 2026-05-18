@@ -2,6 +2,7 @@
 
 # compiled output
 /dist/
+/appStatic/dist/
 /tmp/
 
 # dependencies
@@ -9,7 +10,8 @@
 /node_modules/
 
 # misc
-/.env*
+/.env
+/appStatic/.env
 /.pnp*
 /.sass-cache
 /connect.lock

@@ -1,0 +1,20 @@
+services:
+  keyforge-inserts-static:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: keyforge-inserts-static
+    restart: unless-stopped
+    ports:
+      - "${PORT}:4200"
+    environment:
+      - NODE_ENV=production
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+    networks:
+      - keyforge-dashboard_network_cards
+
+networks:
+  keyforge-dashboard_network_cards:
+    external: false
