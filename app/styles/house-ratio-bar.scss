@@ -7,6 +7,8 @@ $border-style: 1px solid black;
   .house {
     border-right: $border-style;
     flex-grow: 1;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
     &:last-child {
       border-right: none;
     }

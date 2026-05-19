@@ -1,7 +1,5 @@
-version: "3.9"
-
 services:
-  burger-inserts:
+  keyforge-inserts:
     build: .
     ports:
       - "4200:4200"

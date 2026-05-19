@@ -110,10 +110,10 @@ export default class DeckManagerService extends Service {
     if (!String.prototype.includes) {
       String.prototype.includes = function(search, start) {
         'use strict';
-    
+
         if (search instanceof RegExp) {
           throw TypeError('first argument must not be a RegExp');
-        } 
+        }
         if (start === undefined) { start = 0; }
         return this.indexOf(search, start) !== -1;
       };
@@ -127,7 +127,7 @@ export default class DeckManagerService extends Service {
       return [];
     }
   }
-  
+
   saveOrUpdate(deck) {
     return this.store.findRecord('deck', deck.id).then((savedDeck) => {
       this._mapDokData(savedDeck, deck);
@@ -268,10 +268,10 @@ export default class DeckManagerService extends Service {
     destDeck.cardArchiveCount = srcDeck.cardArchiveCount || 0;
     destDeck.cardDrawCount = srcDeck.cardDrawCount || 0;
     destDeck.keyCheatCount = srcDeck.keyCheatCount || 0;
-    
+
     // Just Aember
     // destDeck.rawAmber > See AE>A Mmapping
-    
+
     // Computed data
     destDeck.aercScore = srcDeck.aercScore || 0;
     destDeck.antisynergyRating = srcDeck.antisynergyRating || 0;
@@ -288,7 +288,7 @@ export default class DeckManagerService extends Service {
     destDeck.other = srcDeck.other || 0;
 
     // SAS Specific Data
-    destDeck.lastSasUpdate = srcDeck.lastSasUpdate;   
+    destDeck.lastSasUpdate = srcDeck.lastSasUpdate;
 
     // Data only available in csv export
     destDeck.house1SAS = srcDeck.house1SAS;
@@ -309,7 +309,7 @@ export default class DeckManagerService extends Service {
       return true;
     }
     // Check on version first
-    if(deck.sasVersion) { 
+    if(deck.sasVersion) {
       return parseInt(deck.sasVersion) < ENV.dok.lastSasVersion;
     }
 
