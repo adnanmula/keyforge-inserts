@@ -5,7 +5,7 @@ dockerconfig-main=docker-compose.yml
 dockerconfig-dist=appStatic/docker-compose.yml
 
 up:
-	docker compose -f ${dockerconfig-main} up -d
+	docker compose -f ${dockerconfig-main} up --remove-orphans -d
 
 down:
 	docker compose -f ${dockerconfig-main} down
@@ -20,7 +20,7 @@ logs:
 dist_up:
 	docker compose -f ${dockerconfig-dist} build && \
 	docker compose -f ${dockerconfig-dist} pull && \
-	docker compose -f ${dockerconfig-dist} up -d
+	docker compose -f ${dockerconfig-dist} up --remove-orphans -d
 
 dist_down:
 	docker compose -f ${dockerconfig-dist} down
